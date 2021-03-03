@@ -19,8 +19,12 @@ looker.plugins.visualizations.add({
   create: function(element, config) {
 
     // Insert a <style> tag with some styles we'll use later.
-    element.innerHTML = `
-      <style>
+
+    const style = document.createElement('style')
+    style.innerHTML = `
+        body {
+          background-color: transparent !important;
+        }
         .hello-world-vis {
           height: 100vh;
           width: 100vw;
@@ -32,9 +36,14 @@ looker.plugins.visualizations.add({
           text-decoration: none;
           color: black;
         }
-      </style>
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/react-grid-layout/1.2.0/css/styles.min.css" />
     `;
+    let link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.type = 'text/css'
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/react-grid-layout/1.2.0/css/styles.min.css'
+    
+    document.getElementsByTagName('head')[0].appendChild(style);
+    document.getElementsByTagName('head')[0].appendChild(link);
 
     
     let container = element.appendChild(document.createElement("div"));

@@ -83,7 +83,7 @@ const StyledDiv = styled(Box)`
 
 const CoolDiv = styled(Box)`
   background: ${props=>props.item_color||'#ccc'};
-  box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 10px 8px -8px ${props=>props.item_color||'#ccc'};
   height: 100%;
   cursor: pointer;
   overflow: hidden;
